@@ -1,0 +1,25 @@
+{
+  "name": "pfadi-brunnen.ch",
+  "version": "1.0.0",
+  "description": "Website Pfadi-Brunnen",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thomas Richner",
+  "license": "MIT",
+  "dependencies": {
+    "mithril": "^0.2.5"
+  },
+  "devDependencies": {
+    "gulp-inject": "^4.2.0",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-rimraf": "^0.2.1",
+    "gulp-util": "^3.0.8",
+    "lodash": "^4.17.4",
+    "path": "^0.12.7",
+    "webpack": "^2.2.0-rc.3",
+    "webpack-stream": "^3.2.0",
+    "wrench": "^1.5.9"
+  }
+}
