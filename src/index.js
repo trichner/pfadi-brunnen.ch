@@ -4,29 +4,39 @@ let m = require('mithril');
 
 console.log('Hello World!');
 
+let url = "https://dl.dropboxusercontent.com/s/uzwsry3gyzyicyt/cheese.txt";
 //model
 var Page = {
 	list: () => {
 		//return m.request({method: "GET", url: "pages.json"});
-		return m.prop([
-		{
+		return m.prop([{
 			"title": "n1b.ch",
 			"url": "https://www.n1b.ch",
-		},
-		{
+		}, {
 			"title": "pfadi-brunnen.ch",
 			"url": "https://www.pfadi-brunnen.ch",
-		},
-		]);
+		}, ]);
+	},
+	cheese: () => {
+		return m.request({
+			method: "GET",
+			url: url,
+			deserialize: (v) => v
+		});
 	}
 };
 
 var Demo = {
 	//controller
 	controller: function() {
-		var pages = Page.list();
+		let pages = Page.list();
+		let cheese = Page.cheese();
+
+		cheese.then((txt) => console.log(txt));
+
 		return {
 			pages: pages,
+			cheese: cheese,
 			rotate: function() {
 				pages().push(pages().shift());
 			}
@@ -43,7 +53,8 @@ var Demo = {
 			}),
 			m("button", {
 				onclick: ctrl.rotate
-			}, "Rotate links")
+			}, "Rotate links"),
+			m("div", ctrl.cheese())
 		]);
 	}
 };
